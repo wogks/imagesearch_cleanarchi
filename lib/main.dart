@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_search_clean_arch/data/api.dart';
+import 'package:image_search_clean_arch/data/photo_provider.dart';
 import 'package:image_search_clean_arch/ui/home_screen.dart';
+import 'package:image_search_clean_arch/ui/home_view_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(api: PixabayApi()),
+      home: PhotoProvider(
+        viewModel: HomeViewModel(PixabayApi()),
+        child: HomeScreen()),
     );
   }
 }
