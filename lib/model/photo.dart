@@ -72,29 +72,29 @@ class Photo {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['pageURL'] = pageURL;
-    _data['type'] = type;
-    _data['tags'] = tags;
-    _data['previewURL'] = previewURL;
-    _data['previewWidth'] = previewWidth;
-    _data['previewHeight'] = previewHeight;
-    _data['webformatURL'] = webformatURL;
-    _data['webformatWidth'] = webformatWidth;
-    _data['webformatHeight'] = webformatHeight;
-    _data['largeImageURL'] = largeImageURL;
-    _data['imageWidth'] = imageWidth;
-    _data['imageHeight'] = imageHeight;
-    _data['imageSize'] = imageSize;
-    _data['views'] = views;
-    _data['downloads'] = downloads;
-    _data['collections'] = collections;
-    _data['likes'] = likes;
-    _data['comments'] = comments;
-    _data['user_id'] = userId;
-    _data['user'] = user;
-    _data['userImageURL'] = userImageURL;
-    return _data;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['pageURL'] = pageURL;
+    data['type'] = type;
+    data['tags'] = tags;
+    data['previewURL'] = previewURL;
+    data['previewWidth'] = previewWidth;
+    data['previewHeight'] = previewHeight;
+    data['webformatURL'] = webformatURL;
+    data['webformatWidth'] = webformatWidth;
+    data['webformatHeight'] = webformatHeight;
+    data['largeImageURL'] = largeImageURL;
+    data['imageWidth'] = imageWidth;
+    data['imageHeight'] = imageHeight;
+    data['imageSize'] = imageSize;
+    data['views'] = views;
+    data['downloads'] = downloads;
+    data['collections'] = collections;
+    data['likes'] = likes;
+    data['comments'] = comments;
+    data['user_id'] = userId;
+    data['user'] = user;
+    data['userImageURL'] = userImageURL;
+    return data;
   }
 }

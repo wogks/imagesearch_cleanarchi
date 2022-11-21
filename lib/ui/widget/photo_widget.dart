@@ -16,6 +16,5 @@ class PhotoWidget extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }
