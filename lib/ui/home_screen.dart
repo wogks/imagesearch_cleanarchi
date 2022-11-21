@@ -1,19 +1,20 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:image_search_clean_arch/data/api.dart';
 import 'package:image_search_clean_arch/model/photo.dart';
 import 'package:image_search_clean_arch/ui/widget/photo_widget.dart';
-import 'package:http/http.dart' as http;
+
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.api,});
+  final PixabayApi api;
+
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   final _controller = TextEditingController();
   @override
   void dispose() {
@@ -46,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 suffixIcon: IconButton(
                   onPressed: () async {
-                    final photos = await PixabayApi().fetch((_controller.text));
+                    final photos = await widget.api.fetch(_controller.text);
                     setState(() {
                       _photos = photos;
                     });
