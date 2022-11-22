@@ -19,11 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  
-
   @override
   Widget build(BuildContext context) {
-    final viewModel = context.watch<HomeViewModel>();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -43,33 +40,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 suffixIcon: IconButton(
                   onPressed: () async {
-                    viewModel.fetch(_controller.text);
+                    context.read<HomeViewModel>().fetch(_controller.text);
                   },
                   icon: const Icon(Icons.search),
                 ),
               ),
             ),
           ),
-          StreamBuilder<List<Photo>>(
-            stream: viewModel.photoStream,
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) {
-                return const CircularProgressIndicator();
-              }
-              final photos = snapshot.data!;
+          Consumer<HomeViewModel>(
+            builder: (_, viewModel, child) {
               return Expanded(
                 child: GridView.builder(
-                  itemCount: photos.length,
+                  itemCount: viewModel.photos.length,
                   padding: const EdgeInsets.all(16),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, crossAxisSpacing: 16, mainAxisSpacing: 16),
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16),
                   itemBuilder: (context, index) {
-                    return PhotoWidget(photo: photos[index]);
+                    return PhotoWidget(photo: viewModel.photos[index]);
                   },
                 ),
               );
-            }
-          )
+            },
+          ),
         ],
       ),
     );
