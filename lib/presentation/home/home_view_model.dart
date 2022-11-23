@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:image_search_clean_arch/data/api.dart';
+import 'package:image_search_clean_arch/domain/repository/photo_api_repository.dart';
 
-import '../model/photo.dart';
+import '../../domain/model/photo.dart';
+
+
 
 class HomeViewModel with ChangeNotifier {
-  final PixabayApi api;
+  final PhotoApiRepository api;
 
   HomeViewModel(this.api);
 

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:image_search_clean_arch/data/api.dart';
-import 'package:image_search_clean_arch/ui/home_screen.dart';
-import 'package:image_search_clean_arch/ui/home_view_model.dart';
+import 'package:image_search_clean_arch/data/data_source/pixabay_api.dart';
+import 'package:image_search_clean_arch/data/repository_imple.dart/photo_repository_imple.dart';
+import 'package:image_search_clean_arch/presentation/home/home_screen.dart';
+import 'package:image_search_clean_arch/presentation/home/home_view_model.dart';
+import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,10 +24,10 @@ class MyApp extends StatelessWidget {
       home: MultiProvider(providers: [
         ChangeNotifierProvider(
           create: (_) => HomeViewModel(
-            PixabayApi(),
+            PhotoApiRepositoryImple(PixabayApi(http.Client())),
           ),
         ),
-      ], child: HomeScreen()),
+      ], child: const HomeScreen()),
     );
   }
 }

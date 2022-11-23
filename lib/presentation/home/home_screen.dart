@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:image_search_clean_arch/model/photo.dart';
-import 'package:image_search_clean_arch/ui/home_view_model.dart';
-import 'package:image_search_clean_arch/ui/widget/photo_widget.dart';
+import 'package:image_search_clean_arch/presentation/home/components/photo_widget.dart';
 import 'package:provider/provider.dart';
+
+import 'home_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
